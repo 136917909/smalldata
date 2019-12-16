@@ -1,15 +1,34 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import HomePage from '../ui/HomePage'
+import layoutmain from '../ui/layoutmain'
+import Occupation from '../ui/Occupation'
+import City from '../ui/City'
 
 Vue.use(Router)
 
 export default new Router({
+  base:'/',
   routes: [
     {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    }
+      path:'/',
+      component: layoutmain,
+      children:[
+        {
+          path: '/index',
+          name: 'homepage',
+          component: HomePage
+        },
+        {
+          path: 'city',
+          component: City
+        },
+        {
+          path:'occupation',
+          component: Occupation
+        }
+      ]
+    },
+
   ]
 })
