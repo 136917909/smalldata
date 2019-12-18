@@ -4,16 +4,17 @@ import HomePage from '../ui/HomePage'
 import layoutmain from '../ui/layoutmain'
 import Occupation from '../ui/Occupation'
 import City from '../ui/City'
+import PersonalCenter from '../ui/PersonalCenter'
 
 Vue.use(Router)
 
 export default new Router({
-  base:'/',
+  base: '/',
   routes: [
     {
-      path:'/',
+      path: '/',
       component: layoutmain,
-      children:[
+      children: [
         {
           path: '/index',
           name: 'homepage',
@@ -24,11 +25,14 @@ export default new Router({
           component: City
         },
         {
-          path:'occupation',
+          path: 'occupation',
           component: Occupation
+        },
+        {
+          path: 'personalcenter',
+          component: PersonalCenter
         }
       ]
-    },
-
+    }
   ]
 })
