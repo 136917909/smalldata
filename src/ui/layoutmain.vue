@@ -1,9 +1,15 @@
 <template>
-    <el-container>
+    <el-container style="height:100%;margin:0 auto;">
       <el-header class="header">
-          <div>头像</div>
+        <div style="margin-left: 100px">
+          <el-avatar style="float: left;margin-top: 5px" :size="50" src="../assets/logo.png"></el-avatar>
+          <div style="float: left;margin-left: 10px;margin-top: 20px">用户名</div>
+        </div>
       </el-header>
-      <el-main><router-view></router-view></el-main>
+      <el-main style="width: 1200px;margin: auto">
+        <router-view></router-view>
+      </el-main>
+      <el-footer></el-footer>
     </el-container>
 </template>
 
@@ -19,14 +25,11 @@
 <style scoped>
   .header {
     width: 100%;
-    height: 30px;
-    padding: 0 10px;
-    border-left: 10px solid #a3be8c;
-    font-size: 12px;
-    line-height: 30px;
-    color: #eff1f5;
-    background: #343d46;
-    overflow: hidden;
+    height: 80px;
+    box-shadow: 0 1px 3px 1px rgba(26, 26, 26, 0.2);
+  }
+  .el-main {
+    overflow: visible;
   }
 
 </style>

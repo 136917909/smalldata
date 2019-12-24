@@ -5,6 +5,7 @@ import layoutmain from '../ui/layoutmain'
 import Occupation from '../ui/Occupation'
 import City from '../ui/City'
 import PersonalCenter from '../ui/PersonalCenter'
+import Map from '../ui/Map'
 
 Vue.use(Router)
 
@@ -31,6 +32,10 @@ export default new Router({
         {
           path: 'personalcenter',
           component: PersonalCenter
+        },
+        {
+          path:'map',
+          component: Map
         }
       ]
     }
