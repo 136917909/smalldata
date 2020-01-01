@@ -6,6 +6,7 @@ import Occupation from '../ui/Occupation'
 import City from '../ui/City'
 import PersonalCenter from '../ui/PersonalCenter'
 import Map from '../ui/Map'
+import match from "../ui/match";
 
 Vue.use(Router)
 
@@ -36,7 +37,11 @@ export default new Router({
         {
           path:'map',
           component: Map
-        }
+        },
+        {
+          path:'match',
+          component: match
+        },
       ]
     }
   ]
