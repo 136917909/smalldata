@@ -6,7 +6,10 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import echarts from 'echarts'
+import {server} from '../static/js/api'
+
 Vue.prototype.$echarts = echarts
+Vue.prototype.$server = server
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
