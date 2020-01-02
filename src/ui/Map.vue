@@ -35,7 +35,7 @@
           name: '',
           code: '',
         },
-        data: [],
+        citylist: [],
         geoCoordMap: {
           '海门':[121.15,31.89],
           '鄂尔多斯':[109.781327,39.608266],
@@ -246,12 +246,12 @@
         var res = [];
         for (var i = 0; i < data.length; i++) {
           if (provinceEngName) {
-            let ret = this.cityIsInclude(provinceEngName, data[i].city, cityNameEng)
+            let ret = this.cityIsInclude(provinceEngName, data[i].name , cityNameEng)
             if (ret) {
-              var geoCoord = this.geoCoordMap[data[i].city]
+              var geoCoord = this.geoCoordMap[data[i].name]
               if (geoCoord) {
                 res.push({
-                  name: data[i].city,
+                  name: data[i].name,
                   value: geoCoord.concat(data[i].value)
                 })
               }
@@ -321,7 +321,7 @@
               name: 'pm2.5',
               type: 'scatter',
               coordinateSystem: 'geo',
-              data: this.convertData(this.data),
+              data: this.convertData(this.citylist),
               encode: {
                 value: 2
               },
@@ -346,7 +346,7 @@
               name: 'Top 5',
               type: 'effectScatter',
               coordinateSystem: 'geo',
-              data: this.convertData(this.data.sort(function (a, b) {
+              data: this.convertData(this.citylist.sort(function (a, b) {
                 return b.value - a.value;
               }).slice(0, 5)),
               encode: {
@@ -406,8 +406,8 @@
             this.city.code = '';
             this.city.name = '';
             this.setMapOption(this.province.name);
-            this.option.series[0].data = this.convertData(this.data, provinceNameChineseToEng(this.province.name));
-            this.option.series[1].data = this.convertData(this.data.sort(function (a, b) {
+            this.option.series[0].data = this.convertData(this.citylist, provinceNameChineseToEng(this.province.name));
+            this.option.series[1].data = this.convertData(this.citylist.sort(function (a, b) {
               return b.value - a.value;
             }).slice(0, 5), provinceNameChineseToEng(this.province.name));
             this.echart.setOption(this.option);
@@ -479,8 +479,8 @@
           this.province.name = name;
           this.province.code = code;
           this.setMapOption(name, res.data.cp);
-          this.option.series[0].data = this.convertData(this.data, provinceNameChineseToEng(name));
-          this.option.series[1].data = this.convertData(this.data.sort(function (a, b) {
+          this.option.series[0].data = this.convertData(this.citylist, provinceNameChineseToEng(name));
+          this.option.series[1].data = this.convertData(this.citylist.sort(function (a, b) {
             return b.value - a.value;
           }).slice(0, 5), provinceNameChineseToEng(name));
           echarts.registerMap(name, res.data);
@@ -496,8 +496,8 @@
           this.city.name = name;
           this.city.code = code;
           this.setMapOption(name, res.data.cp);
-          this.option.series[0].data = this.convertData(this.data, provinceNameChineseToEng(this.province.name), code);
-          this.option.series[1].data = this.convertData(this.data.sort(function (a, b) {
+          this.option.series[0].data = this.convertData(this.citylist, provinceNameChineseToEng(this.province.name), code);
+          this.option.series[1].data = this.convertData(this.citylist.sort(function (a, b) {
             return b.value - a.value;
           }).slice(0, 5), provinceNameChineseToEng(this.province.name), code);
           echarts.registerMap(name, res.data);
@@ -508,16 +508,21 @@
       },
     },
     mounted() {
-      this.$server.showMap().then((response) => {
-        this.data = response.list
-        console.log(this.data)
-      })
-        .catch(function (error) {
-          console.log('err', error)
-        })
       this.chinaConfigure();
+
+      // this.$server.showMap().then((response) => {
+      //   this.citylist = response.list
+      //   console.log('api',this.citylist)
+      // })
+      //   .catch(function (error) {
+      //     console.log('err', error)
+      //   })
     },
     created() {
+
+    },
+    beforeCreate(){
+
     },
     beforeDestroy() {
       if (!this.echart) {
