@@ -23,11 +23,13 @@ export default new Router({
           component: HomePage
         },
         {
-          path: 'city',
+          name:'citys',
+          path: 'city/:name',
           component: City
         },
         {
-          path: 'occupation',
+          name:'position',
+          path: 'occupation/:id',
           component: Occupation
         },
         {

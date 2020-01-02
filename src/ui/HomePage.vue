@@ -13,7 +13,16 @@
           <div id="map" style="height: 600px;width: 1000px"></div>
       </div>
     </div>
-    <div id="myChart" style="height: 500px;width: 1000px"></div>
+    <div style="position: relative">
+      <button @click="turn_to_occup(1)" style="position: absolute;height: 20px;width: 60px;left: 100px;top: 85px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
+      <button @click="turn_to_occup(2)"style="position: absolute;height: 20px;width: 60px;left: 100px;top: 155px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
+      <button @click="turn_to_occup(3)"style="position: absolute;height: 20px;width: 60px;left: 100px;top: 225px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
+      <button @click="turn_to_occup(4)"style="position: absolute;height: 20px;width: 60px;left: 100px;top: 295px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
+      <button @click="turn_to_occup(5)"style="position: absolute;height: 20px;width: 60px;left: 100px;top: 365px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
+      <div id="myChart" style="height: 500px;width: 1000px">
+
+      </div>
+    </div>
   </div>
 </template>
 
@@ -36,6 +45,14 @@
       this.ChinaMap();
     },
     methods: {
+      turn_to_occup(e){
+          this.$router.push({
+              name: 'position',
+              params: {
+                  id: e
+              }
+          })
+      },
       ChinaMap() {
         let ChinaMap = echarts.init(document.getElementById('map')) //这里是为了获得容器所在位置
         ChinaMap.setOption(option);
