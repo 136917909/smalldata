@@ -7,7 +7,7 @@ axios.interceptors.request.use(
   config => {
     config.data = JSON.stringify(config.data)
     config.headers = {
-      'Content-Type': 'application/json;charset=UTF-8'//Request Method: OPTIONS
+      'Content-Type': 'application/json;charset=UTF-8'// Request Method: OPTIONS
       // 'Content-Type': 'application/x-www-form-urlencoded'//Request Method: POST
     }
     return config
@@ -76,7 +76,7 @@ axios.interceptors.response.use(response => {
  * @returns {Promise}
  */
 
-export function get(url, params = {}) {
+export function get (url, params = {}) {
   return new Promise((resolve, reject) => {
     axios.get(url, {
       params: params
@@ -97,7 +97,7 @@ export function get(url, params = {}) {
  * @returns {Promise}
  */
 
-export function post(url, data = {}) {
+export function post (url, data = {}) {
   return new Promise((resolve, reject) => {
     axios.post(url, data)
       .then(response => {
@@ -109,7 +109,51 @@ export function post(url, data = {}) {
 }
 
 export const server = {
+  /** homepage**/
+  // 地图
   showMap: function (paramObj) {
-    return post('/show_map',paramObj)
+    return post('/show_map', paramObj)
+  },
+  // 职业排名
+  jobRank: function (paramObj) {
+    return post('/job_rank', paramObj)
+  },
+  // 薪资排名
+  salaryRank: function (paramObj) {
+    return post('/salary_rank', paramObj)
+  },
+  // 用户信息
+  showUser: function (paramObj) {
+    return post('/show_user', paramObj)
+  },
+  // 热门话题
+  hotTopic: function (paramObj) {
+    return post('/hot_topic', paramObj)
+  },
+  // 推荐职业
+  bestJob: function (paramObj) {
+    return post('/best——job', paramObj)
+  },
+  /** 职业详情页 */
+  // 相似度
+  simrankJob: function (paramObj) {
+    return post('/simrank_job', paramObj)
+  },
+  // 职业信息
+  jobInfo: function (paramObj) {
+    return post('/job_info', paramObj)
+  },
+  // 职业薪资城市排名
+  jobSalaryCityRank: function (paramObj) {
+    return post('/job_salary_city_rank', paramObj)
+  },
+  /** 城市详情页 */
+  // 城市热门职业排名
+  cityHotJobRank: function (paramObj) {
+    return post('/city_hot_job_rank', paramObj)
+  },
+  // 城市职业薪资排名
+  cityJobSalaryRank: function (paramObj) {
+    return post('/city_job_salary_rank', paramObj)
   }
 }
