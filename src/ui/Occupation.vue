@@ -1,14 +1,21 @@
 <template>
   <div>
-    <div style="text-align: center;font-size: 30px;">{{this.Occup_id}}</div>
+    <div style="font-size: 50px;text-align: center;margin: auto;padding: 50px">
+      职业详情页
+    </div>
+    <div style="text-align: center;font-size: 30px;padding: 50px">{{this.Occup_id}}</div>
     <div>
-      <div style="margin-left: 100px;">职业匹配度：{{this.job_ms[0].job_match}}%<span></span></div>
+      <div style="font-size: 20px;padding: 20px">职业匹配度：{{this.job_match}}%<span></span></div>
     </div>
-    <div style="margin-left: 100px;background: darkgrey;width: 1032px;">
+    <div style="padding: 50px;background: darkgrey;">
       <div>技能要求</div>
-      <div>{{this.job_ms[0].job_message}}</div>
+      <div>{{this.job_message}}</div>
     </div>
-    <div style="margin-left: 100px;border: 1px solid black;width: 180px;">职业热门城市薪资排名：</div>
+    <hr style="margin-top: 50px">
+    <div style="font-size: 30px;text-align: center;margin: auto;padding: 50px">
+      职业热门城市薪资排名：
+    </div>
+
     <div style="position: relative">
       <button @click="turn_to_city(hot_city_list[4].city) " style="position: absolute;height: 20px;width: 60px;left: 100px;top: 85px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
       <button @click="turn_to_city(hot_city_list[3].city)"style="position: absolute;height: 20px;width: 60px;left: 100px;top: 155px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
@@ -17,6 +24,10 @@
       <button @click="turn_to_city(hot_city_list[0].city)"style="position: absolute;height: 20px;width: 60px;left: 100px;top: 365px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
       <div id="myChart" style="height: 500px;width: 1000px">
 
+      </div>
+      <hr style="margin-top: 50px">
+      <div style="font-size: 30px;text-align: center;margin: auto;padding: 50px">
+        职业热门城市薪资排名：
       </div>
     </div>
     <div style="position: relative">
@@ -41,6 +52,8 @@ export default {
           hot_city_list:[],
           hot_city_list2:[],
           job_ms:[],
+          job_match:'',
+          job_message:'',
           job_message2:[]
         }
     },
@@ -49,6 +62,8 @@ export default {
         this.drawLine2();
         this.$server.jobMassageShow({job:this.$route.params.id}).then((response) => {
           this.job_ms = response.list1
+          this.job_match = response.list1[0].job_match
+          this.job_message = response.list1[0].job_message
           console.log('jobmes1',response)
         })
           .catch(function (error) {

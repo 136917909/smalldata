@@ -51,7 +51,6 @@
             <el-checkbox label="网络爬虫" name="type"></el-checkbox>
             <el-checkbox label="spring mvc" name="type"></el-checkbox>
             <el-checkbox label="Android开发" name="type"></el-checkbox>
-            <el-checkbox label="c++编程" name="type"></el-checkbox>
             <el-checkbox label="c" name="type"></el-checkbox>
             <el-checkbox label="c++" name="type"></el-checkbox>
             <el-checkbox label="java" name="type"></el-checkbox>
@@ -97,6 +96,7 @@ export default {
                         name:this.form.name,
                         workyear: this.form.workyear,
                         intentcity: this.form.intentcity,
+                        workdir: this.form.workdir,
                         skill:this.form.skill
                 }
             })

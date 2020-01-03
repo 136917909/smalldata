@@ -16,12 +16,16 @@
         <PersonalCenter></PersonalCenter>
       </div>
     </div>
+    <hr>
+    <div style="font-size: 30px;width:170px;margin: auto;padding: 50px">
+      热门职业
+    </div>
     <div style="position: relative">
       <button @click="turn_to_occup('大数据')" style="position: absolute;height: 20px;width: 60px;left: 100px;top: 85px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
-      <button @click="turn_to_occup('C')"style="position: absolute;height: 20px;width: 60px;left: 100px;top: 155px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
-      <button @click="turn_to_occup('前端')"style="position: absolute;height: 20px;width: 60px;left: 100px;top: 225px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
-      <button @click="turn_to_occup('java')"style="position: absolute;height: 20px;width: 60px;left: 100px;top: 295px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
-      <button @click="turn_to_occup('软件架构')"style="position: absolute;height: 20px;width: 60px;left: 100px;top: 365px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
+      <button @click="turn_to_occup('C')" style="position: absolute;height: 20px;width: 60px;left: 100px;top: 155px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
+      <button @click="turn_to_occup('前端')" style="position: absolute;height: 20px;width: 60px;left: 100px;top: 225px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
+      <button @click="turn_to_occup('java')" style="position: absolute;height: 20px;width: 60px;left: 100px;top: 295px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
+      <button @click="turn_to_occup('软件架构')" style="position: absolute;height: 20px;width: 60px;left: 100px;top: 365px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
       <div id="myChart" style="height: 500px;width: 1000px"></div>
     </div>
   </div>

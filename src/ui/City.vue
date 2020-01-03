@@ -1,6 +1,13 @@
 <template>
   <div>
-    <div>{{city_name}}</div>
+    <div style="font-size: 50px;text-align: center;margin: auto;padding: 50px">
+      城市详情页
+    </div>
+    <div style="font-size: 30px;text-align: center;margin: auto;padding: 50px">{{city_name}}</div>
+    <hr>
+    <div style="font-size: 30px;width:170px;margin: auto;padding: 50px">
+      热门职业：
+    </div>
     <div style="position: relative">
       <button @click="turn_to_occup(hot_job_list[4].name)" style="position: absolute;height: 20px;width: 60px;left: 100px;top: 85px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
       <button @click="turn_to_occup(hot_job_list[3].name)"style="position: absolute;height: 20px;width: 60px;left: 100px;top: 155px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
