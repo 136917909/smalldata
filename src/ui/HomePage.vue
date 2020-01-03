@@ -10,7 +10,7 @@
         </div>
       </div>
       <div style="height: 600px;width: 1000px;margin-left:120px;">
-          <div id="map" style="height: 600px;width: 1000px"></div>
+        <Map></Map>
       </div>
     </div>
     <div style="position: relative">
@@ -32,9 +32,11 @@
   import 'echarts/map/js/china.js'
   import option from "../../static/js/MapOption.js"
   import option1 from "../../static/js/test.js"
+  import Map from "./Map";
   export default {
     name: 'HomePage',
-    data(){
+      components: {Map},
+      data(){
       return{
         tabPosition:'left',
         curid:0
