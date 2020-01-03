@@ -35,7 +35,170 @@
           name: '',
           code: '',
         },
-        citylist: [],
+        citylist: [{
+          "name": "上海",
+          "value": 675
+        },
+          {
+            "name": "东莞",
+            "value": 3
+          },
+          {
+            "name": "中山",
+            "value": 2
+          },
+          {
+            "name": "临沂",
+            "value": 1
+          },
+          {
+            "name": "佛山",
+            "value": 13
+          },
+          {
+            "name": "保定",
+            "value": 1
+          },
+          {
+            "name": "北京",
+            "value": 1001
+          },
+          {
+            "name": "南京",
+            "value": 55
+          },
+          {
+            "name": "南宁",
+            "value": 8
+          },
+          {
+            "name": "南昌",
+            "value": 2
+          },
+          {
+            "name": "南通",
+            "value": 1
+          },
+          {
+            "name": "厦门",
+            "value": 35
+          },
+          {
+            "name": "合肥",
+            "value": 20
+          },
+          {
+            "name": "大连",
+            "value": 9
+          },
+          {
+            "name": "天津",
+            "value": 11
+          },
+          {
+            "name": "宁波",
+            "value": 4
+          },
+          {
+            "name": "常州",
+            "value": 1
+          },
+          {
+            "name": "广州",
+            "value": 413
+          },
+          {
+            "name": "惠州",
+            "value": 1
+          },
+          {
+            "name": "成都",
+            "value": 251
+          },
+          {
+            "name": "无锡",
+            "value": 9
+          },
+          {
+            "name": "昆明",
+            "value": 2
+          },
+          {
+            "name": "杭州",
+            "value": 286
+          },
+          {
+            "name": "武汉",
+            "value": 105
+          },
+          {
+            "name": "沈阳",
+            "value": 2
+          },
+          {
+            "name": "河源",
+            "value": 1
+          },
+          {
+            "name": "泉州",
+            "value": 1
+          },
+          {
+            "name": "济南",
+            "value": 7
+          },
+          {
+            "name": "海口",
+            "value": 3
+          },
+          {
+            "name": "深圳",
+            "value": 666
+          },
+          {
+            "name": "烟台",
+            "value": 2
+          },
+          {
+            "name": "珠海",
+            "value": 19
+          },
+          {
+            "name": "福州",
+            "value": 9
+          },
+          {
+            "name": "绍兴",
+            "value": 1
+          },
+          {
+            "name": "苏州",
+            "value": 19
+          },
+          {
+            "name": "西安",
+            "value": 31
+          },
+          {
+            "name": "贵阳",
+            "value": 4
+          },
+          {
+            "name": "郑州",
+            "value": 11
+          },
+          {
+            "name": "重庆",
+            "value": 20
+          },
+          {
+            "name": "长沙",
+            "value": 18
+          },
+          {
+            "name": "青岛",
+            "value": 4
+          }],
         geoCoordMap: {
           '海门':[121.15,31.89],
           '鄂尔多斯':[109.781327,39.608266],
@@ -510,13 +673,13 @@
     mounted() {
       this.chinaConfigure();
 
-      // this.$server.showMap().then((response) => {
-      //   this.citylist = response.list
-      //   console.log('api',this.citylist)
-      // })
-      //   .catch(function (error) {
-      //     console.log('err', error)
-      //   })
+      this.$server.showMap().then((response) => {
+        this.citylist = response.list
+        console.log('api',this.citylist)
+      })
+        .catch(function (error) {
+          console.log('err', error)
+        })
     },
     created() {
 
@@ -538,6 +701,6 @@
 <style scoped>
   .echart-map {
     width: 100%;
-    height: 100vh;
+    height: 60vh;
   }
 </style>

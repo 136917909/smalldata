@@ -145,15 +145,18 @@ export const server = {
   },
   // 职业薪资城市排名
   jobSalaryCityRank: function (paramObj) {
-    return post('/job_salary_city_rank', paramObj)
+    return post('/jobSalaryCityRank', paramObj)
+  },
+  jobHotCityRank: function (paramObj) {
+    return post('/jobHotCityRank', paramObj)
   },
   /** 城市详情页 */
   // 城市热门职业排名
   cityHotJobRank: function (paramObj) {
-    return post('/city_hot_job_rank', paramObj)
+    return post('/cityHotJobRank', paramObj)
   },
   // 城市职业薪资排名
   cityJobSalaryRank: function (paramObj) {
-    return post('/city_job_salary_rank', paramObj)
+    return post('/cityJobSalaryRank', paramObj)
   }
 }

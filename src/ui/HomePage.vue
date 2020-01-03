@@ -10,15 +10,15 @@
         </div>
       </div>
       <div style="height: 600px;width: 1000px;margin-left:120px;">
-          <div id="map" style="height: 600px;width: 1000px"></div>
+          <Map></Map>
       </div>
     </div>
     <div style="position: relative">
-      <button @click="turn_to_occup(1)" style="position: absolute;height: 20px;width: 60px;left: 100px;top: 85px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
-      <button @click="turn_to_occup(2)"style="position: absolute;height: 20px;width: 60px;left: 100px;top: 155px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
-      <button @click="turn_to_occup(3)"style="position: absolute;height: 20px;width: 60px;left: 100px;top: 225px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
-      <button @click="turn_to_occup(4)"style="position: absolute;height: 20px;width: 60px;left: 100px;top: 295px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
-      <button @click="turn_to_occup(5)"style="position: absolute;height: 20px;width: 60px;left: 100px;top: 365px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
+      <button @click="turn_to_occup('大数据')" style="position: absolute;height: 20px;width: 60px;left: 100px;top: 85px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
+      <button @click="turn_to_occup('C')"style="position: absolute;height: 20px;width: 60px;left: 100px;top: 155px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
+      <button @click="turn_to_occup('前端')"style="position: absolute;height: 20px;width: 60px;left: 100px;top: 225px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
+      <button @click="turn_to_occup('java')"style="position: absolute;height: 20px;width: 60px;left: 100px;top: 295px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
+      <button @click="turn_to_occup('软件架构')"style="position: absolute;height: 20px;width: 60px;left: 100px;top: 365px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
       <div id="myChart" style="height: 500px;width: 1000px">
 
       </div>
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+  import Map from './Map'
   import echarts from "echarts"
   import 'echarts/map/js/province/guangdong.js'
   import 'echarts/map/js/china.js'
@@ -34,6 +35,7 @@
   import option1 from "../../static/js/test.js"
   export default {
     name: 'HomePage',
+    components: {Map},
     data(){
       return{
         tabPosition:'left',
@@ -63,11 +65,11 @@
           dataset: {
             source: [
               ['score', 'amount', 'product'],
-              [89.3, 58212, 'Matcha Latte'],
-              [57.1, 78254, 'Milk Tea'],
-              [74.4, 41032, 'Cheese Cocoa'],
-              [50.1, 12755, 'Cheese Brownie'],
-              [32.7, 20112, 'Walnut Brownie']
+              [50, 63233, '软件架构'],
+              [50, 9749, 'Java'],
+              [50, 7220, '前端'],
+              [50, 2606, 'C语言'],
+              [50, 1944, '大数据']
             ]
           },
           grid: {containLabel: true},
