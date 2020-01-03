@@ -4,10 +4,10 @@ import HomePage from '../ui/HomePage'
 import layoutmain from '../ui/layoutmain'
 import Occupation from '../ui/Occupation'
 import City from '../ui/City'
-import PersonalCenter from '../ui/PersonalCenter'
 import Map from '../ui/Map'
 import match from "../ui/match";
-
+import register from "../ui/register";
+import login from "../ui/login";
 Vue.use(Router)
 
 export default new Router({
@@ -33,14 +33,21 @@ export default new Router({
           component: Occupation
         },
         {
-          path: 'personalcenter',
-          component: PersonalCenter
+          name:'register',
+          path:'register',
+          component:register
+        },
+        {
+          name:'login',
+          path:'login',
+          component:login
         },
         {
           path:'map',
           component: Map
         },
         {
+          name:'match',
           path:'match',
           component: match
         },

@@ -2,6 +2,9 @@
     <div style="width: 800px;margin-left: 300px;">
       <div>填写详细信息：</div>
       <el-form ref="form" :model="form" label-width="80px" label-position="left">
+        <el-form-item label="名字">
+          <el-input v-model="form.name"></el-input>
+        </el-form-item>
         <el-form-item label="城市">
           <el-input v-model="form.intentcity"></el-input>
         </el-form-item>
@@ -14,7 +17,13 @@
             <el-option label="python" value="python"></el-option>
             <el-option label="c++" value="c++"></el-option>
             <el-option label="前端" value="web"></el-option>
-            <el-option label="android" value="android"></el-option>
+            <el-option label="c" value="c"></el-option>
+            <el-option label="php" value="php"></el-option>
+            <el-option label="软件测试" value="软件测试"></el-option>
+            <el-option label="后端" value="后端"></el-option>
+            <el-option label="软件架构" value="软件架构"></el-option>
+            <el-option label="游戏开发" value="游戏开发"></el-option>
+            <el-option label="大数据" value="大数据"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="工作经验">
@@ -43,6 +52,18 @@
             <el-checkbox label="spring mvc" name="type"></el-checkbox>
             <el-checkbox label="Android开发" name="type"></el-checkbox>
             <el-checkbox label="c++编程" name="type"></el-checkbox>
+            <el-checkbox label="c" name="type"></el-checkbox>
+            <el-checkbox label="c++" name="type"></el-checkbox>
+            <el-checkbox label="java" name="type"></el-checkbox>
+            <el-checkbox label="python" name="type"></el-checkbox>
+            <el-checkbox label="html/css/javascript" name="type"></el-checkbox>
+            <el-checkbox label="vue框架" name="type"></el-checkbox>
+            <el-checkbox label="AJAX" name="type"></el-checkbox>
+            <el-checkbox label="node.js" name="type"></el-checkbox>
+            <el-checkbox label="linux基础" name="type"></el-checkbox>
+            <el-checkbox label="J2EE" name="type"></el-checkbox>
+            <el-checkbox label="UI设计" name="type"></el-checkbox>
+            <el-checkbox label="软件测试" name="type"></el-checkbox>
           </el-checkbox-group>
         </el-form-item>
         <el-form-item>
@@ -58,6 +79,7 @@ export default {
   data() {
       return {
           form: {
+              name:'',
               companysize: '',
               workyear: '',
               workdir: '',
@@ -70,7 +92,13 @@ export default {
     methods: {
         onSubmit() {
             this.$router.push({
-                name: 'homepage'
+                name: 'homepage',
+                query:{
+                        name:this.form.name,
+                        workyear: this.form.workyear,
+                        intentcity: this.form.intentcity,
+                        skill:this.form.skill
+                }
             })
         }
     }
