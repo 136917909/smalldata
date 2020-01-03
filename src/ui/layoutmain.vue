@@ -4,6 +4,9 @@
         <div style="margin-left: 100px">
           <el-avatar style="float: left;margin-top: 5px" :size="50" src="../assets/logo.png"></el-avatar>
           <div style="float: left;margin-left: 10px;margin-top: 20px">用户名</div>
+          <div @click="turn_to_home()" style="margin-top: 10px;float: right">
+            <el-button type="info" icon="el-icon-house" circle></el-button>
+          </div>
         </div>
       </el-header>
       <el-main style="width: 1200px;margin: auto">
@@ -18,6 +21,13 @@
     name: 'layoutmain',
     mounted () {
       this.$router.push('/index')
+    },
+    methods:{
+        turn_to_home(){
+            this.$router.push({
+                name: 'homepage'
+            })
+        }
     }
   }
 </script>

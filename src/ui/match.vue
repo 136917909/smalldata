@@ -1,5 +1,6 @@
 <template>
     <div style="width: 800px;margin-left: 300px;">
+      <div>填写详细信息：</div>
       <el-form ref="form" :model="form" label-width="80px" label-position="left">
         <el-form-item label="城市">
           <el-input v-model="form.intentcity"></el-input>
@@ -68,7 +69,9 @@ export default {
   },
     methods: {
         onSubmit() {
-            console.log('submit!');
+            this.$router.push({
+                name: 'homepage'
+            })
         }
     }
 }
