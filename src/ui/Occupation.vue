@@ -2,11 +2,11 @@
   <div>
     <div style="text-align: center;font-size: 30px;">{{this.Occup_id}}</div>
     <div>
-      <div style="margin-left: 100px;">职业匹配度：<span>90%</span></div>
+      <div style="margin-left: 100px;">职业匹配度：{{this.job_ms[0].job_match}}%<span></span></div>
     </div>
     <div style="margin-left: 100px;background: darkgrey;width: 1032px;">
       <div>技能要求</div>
-      <div>sdajfoprjgoqirwjgopadsjfapsdjg</div>
+      <div>{{this.job_ms[0].job_message}}</div>
     </div>
     <div style="margin-left: 100px;border: 1px solid black;width: 180px;">职业热门城市薪资排名：</div>
     <div style="position: relative">
@@ -37,14 +37,23 @@ export default {
   name: 'Occupation',
     data(){
         return{
-            Occup_id:this.$route.params.id,
+          Occup_id:this.$route.params.id,
           hot_city_list:[],
-          hot_city_list2:[]
+          hot_city_list2:[],
+          job_ms:[],
+          job_message2:[]
         }
     },
     mounted () {
         this.drawLine();
         this.drawLine2();
+        this.$server.jobMassageShow({job:this.$route.params.id}).then((response) => {
+          this.job_ms = response.list1
+          console.log('jobmes1',response)
+        })
+          .catch(function (error) {
+            console.log('err', error)
+          })
     },
     methods:{
         turn_to_city(e){
@@ -100,7 +109,7 @@ export default {
                   ]
                 })
               })
-              console.log('api',response)
+              console.log('api1',response)
             })
               .catch(function (error) {
                 console.log('err', error)

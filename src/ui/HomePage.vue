@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div>
-      <div style="float: left;width: 100px">
+    <div style="height: 600px;">
+      <div style="float: left;width: 100px;height: 600px;">
         <div style="display: flex;flex-direction: column;justify-content: center;">
           <el-button @click="curid=0" :class="{'cur':curid===0}">全部</el-button>
           <el-button @click="curid=1" :class="{'cur':curid===1}">拉勾网</el-button>
@@ -9,8 +9,11 @@
           <el-button @click="curid=3" :class="{'cur':curid===3}">智联招聘</el-button>
         </div>
       </div>
-      <div style="height: 600px;width: 1000px;margin-left:120px;">
+      <div style="float:left;height: 600px;width: 800px;margin-left: 20px">
           <Map></Map>
+      </div>
+      <div style="float: left;margin-left: 20px">
+        <PersonalCenter></PersonalCenter>
       </div>
     </div>
     <div style="position: relative">
@@ -19,15 +22,14 @@
       <button @click="turn_to_occup('前端')"style="position: absolute;height: 20px;width: 60px;left: 100px;top: 225px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
       <button @click="turn_to_occup('java')"style="position: absolute;height: 20px;width: 60px;left: 100px;top: 295px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
       <button @click="turn_to_occup('软件架构')"style="position: absolute;height: 20px;width: 60px;left: 100px;top: 365px;z-index: 5;background: transparent;border: none;outline: none;cursor: pointer;"></button>
-      <div id="myChart" style="height: 500px;width: 1000px">
-
-      </div>
+      <div id="myChart" style="height: 500px;width: 1000px"></div>
     </div>
   </div>
 </template>
 
 <script>
   import Map from './Map'
+  import PersonalCenter from './PersonalCenter'
   import echarts from "echarts"
   import 'echarts/map/js/province/guangdong.js'
   import 'echarts/map/js/china.js'
@@ -35,7 +37,7 @@
   import option1 from "../../static/js/test.js"
   export default {
     name: 'HomePage',
-    components: {Map},
+    components: {PersonalCenter, Map},
     data(){
       return{
         tabPosition:'left',

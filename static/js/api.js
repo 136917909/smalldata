@@ -158,5 +158,8 @@ export const server = {
   // 城市职业薪资排名
   cityJobSalaryRank: function (paramObj) {
     return post('/cityJobSalaryRank', paramObj)
-  }
+  },
+  jobMassageShow: function (paramObj) {
+    return post('/jobMassageShow', paramObj)
+  },
 }

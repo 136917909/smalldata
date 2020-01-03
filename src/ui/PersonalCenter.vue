@@ -1,6 +1,6 @@
 <template>
     <div>
-      <div style="width: 200px">
+      <div style="width: 200px;border-style:solid;border-width:1px;border-radius: 5px;padding: 5px">
         <div style="text-align: center"><img></div>
         <div>名字：{{this.$route.query.name}}</div>
         <div>城市：{{this.$route.query.intentcity}}</div>
