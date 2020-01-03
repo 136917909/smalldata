@@ -1,13 +1,14 @@
 <template>
-    <div style="width: 200px;">
-      <div style="text-align: center">
-        <img src="../assets/logo.png">
+    <div>
+      <div style="width: 200px">
+        <div style="text-align: center"><img></div>
+        <div>名字：{{this.$route.query.name}}</div>
+        <div>城市：{{this.$route.query.intentcity}}</div>
+        <div>工作经验：{{this.$route.query.workyear}}</div>
+        <div>工作意向:</div>
+        <div>技能：{{this.$route.query.skill}}</div>
+        <div>岗位介绍：</div>
       </div>
-      <div>姓名:</div>
-      <div>性别：</div>
-      <div>年龄：</div>
-      <div>毕业学校：</div>
-      <div>岗位要求：</div>
     </div>
 </template>
 
